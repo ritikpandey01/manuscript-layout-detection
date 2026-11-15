@@ -8,85 +8,103 @@ Powered by a fine-tuned **YOLOv8** spatial detector combined with automated leaf
 
 ## Visual Showcase: Detection in Action
 
-### 1. Real Manuscript: Header & Modern Stamp Localization (`04_a.jpg`)
-Demonstrates precise localization of a top-margin running header alongside a modern library stamp correctly classified as `filler`.
+### Complete Layout Segmentation (All 5 Classes on a Single Manuscript Page)
+This showcase example demonstrates the detector identifying all five target classes simultaneously on a complex Indic manuscript folio:
 
-![Real Manuscript Header Detection](assets/showcase_header_real.jpg)
+![All 5 Classes Layout Detection Showcase](assets/showcase_all_5_classes_stacked.jpg)
 
-| Detected Region | Label | Confidence | Bounding Box `[x_min, y_min, x_max, y_max]` | Description & Reasoning |
+### Detected Regions Breakdown
+
+| Region Class | Confidence | Color in Overlay | Bounding Box `[x_min, y_min, x_max, y_max]` | Description & Reasoning |
 |---|---|---|---|---|
-| **Main Body** | `main_text` | **94.67%** | `[166, 103, 1772, 583]` | Primary manuscript scribe handwriting envelope. |
-| **Top Heading** | `header` | **77.20%** | `[432, 32, 645, 89]` | Running chapter title located above the main text block. |
-| **Library Stamp** | `filler` | **78.14%** | `[7, 59, 137, 121]` | Modern catalog mark correctly separated from manuscript text. |
-| **Margin Line** | `filler` | **37.12%** | `[148, 31, 179, 585]` | Vertical border ruling line (flagged `needs_review: true`). |
+| **`main_text`** | **91.1%** | **Red** | `[279, 210, 1755, 429]` | Primary manuscript text body envelope (unifying lines around binding hole). |
+| **`header`** | **90.8%** | **Blue** | `[353, 106, 926, 182]` | Running title located in the top margin above the main body. |
+| **`footer`** | **92.0%** | **Green** | `[857, 439, 1047, 514]` | Bottom margin text line / catchword. |
+| **`side_text` (Left)** | **93.9%** | **Cyan** | `[31, 201, 210, 304]` | Lateral margin commentary / scholar gloss outside the main text body. |
+| **`side_text` (Right)** | **88.3%** | **Cyan** | `[1785, 333, 1872, 449]` | Right margin gloss. |
+| **`filler` (Top)** | **84.6%** | **Gray** | `[370, 5, 1673, 74]` | Modern digitization credit watermark ("Mumukshu Bhawan...") at top edge. |
+| **`filler` (Bottom)** | **74.8%** | **Gray** | `[301, 536, 1476, 602]` | Digitization credit watermark ("Panini Kanya...") at bottom edge. |
+| **`filler` (Guide)** | **74.7%** | **Gray** | `[247, 193, 267, 398]` | Vertical border ruling line. |
+| **`filler` (Hole)** | **69.6%** | **Gray** | `[281, 276, 312, 311]` | Palm-leaf physical cord binding hole. |
 
 <details>
-<summary>Click to view JSON Output for <code>04_a.jpg</code></summary>
+<summary>Click to view JSON Metadata Output for this page</summary>
 
 ```json
 {
-  "image": "04_a.jpg",
+  "image": "manuscript_folio.jpg",
   "width": 1920,
-  "height": 727,
+  "height": 607,
   "bbox_format": "[x_min,y_min,x_max,y_max]",
   "method": "yolo",
   "predictions": [
     {
-      "label": "main_text",
-      "confidence": 0.9467,
-      "bbox": [166, 103, 1772, 583],
+      "label": "side_text",
+      "confidence": 0.9387,
+      "bbox": [31, 201, 210, 304],
       "reason": "yolo_detection",
       "needs_review": false
     },
     {
-      "label": "filler",
-      "confidence": 0.7814,
-      "bbox": [7, 59, 137, 121],
+      "label": "footer",
+      "confidence": 0.9202,
+      "bbox": [857, 439, 1047, 514],
+      "reason": "yolo_detection",
+      "needs_review": false
+    },
+    {
+      "label": "main_text",
+      "confidence": 0.9112,
+      "bbox": [279, 210, 1755, 429],
       "reason": "yolo_detection",
       "needs_review": false
     },
     {
       "label": "header",
-      "confidence": 0.772,
-      "bbox": [432, 32, 645, 89],
+      "confidence": 0.9084,
+      "bbox": [353, 106, 926, 182],
+      "reason": "yolo_detection",
+      "needs_review": false
+    },
+    {
+      "label": "side_text",
+      "confidence": 0.8832,
+      "bbox": [1785, 333, 1872, 449],
       "reason": "yolo_detection",
       "needs_review": false
     },
     {
       "label": "filler",
-      "confidence": 0.3712,
-      "bbox": [148, 31, 179, 585],
+      "confidence": 0.8456,
+      "bbox": [370, 5, 1673, 74],
       "reason": "yolo_detection",
-      "needs_review": true
+      "needs_review": false
+    },
+    {
+      "label": "filler",
+      "confidence": 0.7483,
+      "bbox": [301, 536, 1476, 602],
+      "reason": "yolo_detection",
+      "needs_review": false
+    },
+    {
+      "label": "filler",
+      "confidence": 0.7473,
+      "bbox": [247, 193, 267, 398],
+      "reason": "yolo_detection",
+      "needs_review": false
+    },
+    {
+      "label": "filler",
+      "confidence": 0.6956,
+      "bbox": [281, 276, 312, 311],
+      "reason": "yolo_detection",
+      "needs_review": false
     }
   ]
 }
 ```
 </details>
-
----
-
-### 2. Real Manuscript: Marginal Annotation (`side_text`) Localization (`23_a.jpg`)
-Demonstrates detection of subtle lateral glosses and annotations written in the margin outside the primary text body.
-
-![Real Manuscript Side Text Detection](assets/showcase_sidetext_real.jpg)
-
-| Detected Region | Label | Confidence | Bounding Box `[x_min, y_min, x_max, y_max]` | Description & Reasoning |
-|---|---|---|---|---|
-| **Marginal Gloss** | `side_text` | **93.76%** | `[1709, 172, 1915, 268]` | Lateral commentary in right margin outside main text x-span. |
-| **Main Body** | `main_text` | **90.90%** | `[119, 71, 1704, 791]` | Comprehensive manuscript content envelope. |
-| **Border Ruling** | `filler` | **60.09%** | `[75, 174, 94, 800]` | Vertical margin bounding guide line. |
-
----
-
-### 3. Synthetic Test: Watermark Trap Disambiguation (`test_syn_19_a_000.jpg`)
-Demonstrates how typed digital watermarks (e.g. eGangotri credits) appearing in top/bottom bands are correctly recognized as `filler` rather than misclassified as headers/footers.
-
-![Synthetic Test Watermark Disambiguation](assets/demo_synthetic_19_a.jpg)
-
-- **Authentic Script Header**: `header` detected at top right (`[1167, 92, 1368, 143]`, confidence: **94.94%**).
-- **Overlaid Digital Credit**: `filler` detected at top edge (`[419, 0, 1336, 42]`, confidence: **76.09%**).
-- **Bottom Credit Line**: `filler` detected at bottom edge (`[161, 557, 1289, 603]`, confidence: **73.26%**).
 
 ---
 
@@ -230,9 +248,7 @@ immverse/
 │   └── weights/
 │       └── best.pt               # Trained YOLOv8 model weights
 ├── assets/                       # Visual showcase images for documentation
-│   ├── showcase_header_real.jpg
-│   ├── showcase_sidetext_real.jpg
-│   └── demo_synthetic_19_a.jpg
+│   └── showcase_all_5_classes_stacked.jpg
 ├── evaluation/
 │   ├── __init__.py
 │   ├── evaluate.py               # Precision, recall, AP@0.5, and macro mAP calculation
@@ -250,7 +266,6 @@ immverse/
 │   ├── test_originals.py         # SHA-256 byte immutability verification
 │   ├── test_cli.py               # End-to-end CLI execution & missing weights handling
 │   └── test_evaluation.py        # IoU and Average Precision numerical checks
-├── dataset/                      # Curated benchmark dataset (train, val, test_synthetic, real_test)
 ├── data/
 │   └── test_images/              # Sample manuscript images for out-of-the-box CLI execution
 ├── sources.csv                   # Public domain image origins & license manifest
@@ -311,7 +326,7 @@ python evaluation/failure_cases.py --method yolo
 ## 6. Training & Reproducibility
 
 Training was performed on a GPU environment using Kaggle. The self-driving notebook [`method_yolo/kaggle_train.ipynb`](method_yolo/kaggle_train.ipynb) contains the end-to-end training pipeline:
-1. Upload the `dataset/` directory to Kaggle.
+1. Upload the dataset to Kaggle.
 2. Open `method_yolo/kaggle_train.ipynb`, attach the dataset, and enable GPU (T4 / P100).
 3. Click **Run All**. The notebook automatically configures paths, executes training, evaluates checkpoints, and packages `best.pt` with metrics into `outputs.zip`.
 4. Place the downloaded `best.pt` in `method_yolo/weights/best.pt`.
