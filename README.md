@@ -266,6 +266,8 @@ immverse/
 │   ├── test_originals.py         # SHA-256 byte immutability verification
 │   ├── test_cli.py               # End-to-end CLI execution & missing weights handling
 │   └── test_evaluation.py        # IoU and Average Precision numerical checks
+├── tools/
+│   └── download_data.py          # Automated manuscript scraper (archive.org & Wikimedia Commons)
 ├── data/
 │   └── test_images/              # Sample manuscript images for out-of-the-box CLI execution
 ├── sources.csv                   # Public domain image origins & license manifest
@@ -323,7 +325,22 @@ python evaluation/failure_cases.py --method yolo
 
 ---
 
-## 6. Training & Reproducibility
+## 6. Data Acquisition & Sourcing
+
+To train and evaluate on authentic historical documents, an automated collection pipeline was developed ([`tools/download_data.py`](tools/download_data.py)) targeting public-domain Indic manuscript collections:
+1. **Internet Archive (`archive.org`)**: Advanced queries filtering Sanskrit, Devanagari, Grantha, and palm-leaf manuscripts (eGangotri, Jangamwadi Math, and Royal Asiatic Society collections).
+2. **Wikimedia Commons API**: Curated historical Indic folios with verified open licenses across diverse scripts (Devanagari, Sharada, Newar, Grantha).
+
+All source URLs, licenses (Public Domain, CC0, CC BY-SA), and institution titles are cataloged in [`sources.csv`](sources.csv).
+
+To run a test scrape:
+```bash
+python tools/download_data.py --out ./data --test
+```
+
+---
+
+## 7. Training & Reproducibility
 
 Training was performed on a GPU environment using Kaggle. The self-driving notebook [`method_yolo/kaggle_train.ipynb`](method_yolo/kaggle_train.ipynb) contains the end-to-end training pipeline:
 1. Upload the dataset to Kaggle.
@@ -335,7 +352,7 @@ Detailed step-by-step instructions are documented in [`method_yolo/KAGGLE_STEPS.
 
 ---
 
-## 7. Known Edge Cases & Failure Diagnostics
+## 8. Known Edge Cases & Failure Diagnostics
 
 Detailed visual diagnostics are recorded in [`evaluation/reports/failure_cases_yolo.md`](evaluation/reports/failure_cases_yolo.md):
 1. **Faint Pencil Annotations**: Extremely low-contrast commentary written in soft pencil can have lower confidence ($< 0.40$), automatically flagged as `needs_review: true`.
@@ -344,7 +361,7 @@ Detailed visual diagnostics are recorded in [`evaluation/reports/failure_cases_y
 
 ---
 
-## 8. Licenses & Attribution
+## 9. Licenses & Attribution
 
 - **Ultralytics YOLOv8**: Distributed under the AGPL-3.0 License.
 - **Manuscript Scans**: Public domain / CC-licensed historical images sourced from Wikimedia Commons and Internet Archive. Exact source URLs and licenses are cataloged in [`sources.csv`](sources.csv).
