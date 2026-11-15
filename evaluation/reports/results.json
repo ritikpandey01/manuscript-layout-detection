@@ -1,0 +1,320 @@
+{
+  "rules": {
+    "val": {
+      "macro_mAP50": 0.253,
+      "header": {
+        "AP50": 0.0909,
+        "precision": 0.1579,
+        "recall": 0.1667,
+        "support": 18
+      },
+      "footer": {
+        "AP50": 0.0714,
+        "precision": 0.1333,
+        "recall": 0.1818,
+        "support": 11
+      },
+      "main_text": {
+        "AP50": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 50
+      },
+      "side_text": {
+        "AP50": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 20
+      },
+      "filler": {
+        "AP50": 0.1027,
+        "precision": 0.1226,
+        "recall": 0.1057,
+        "support": 123
+      }
+    },
+    "test_synthetic": {
+      "macro_mAP50": 0.2698,
+      "header": {
+        "AP50": 0.2231,
+        "precision": 0.1852,
+        "recall": 0.5882,
+        "support": 17
+      },
+      "footer": {
+        "AP50": 0.161,
+        "precision": 0.1475,
+        "recall": 0.4737,
+        "support": 19
+      },
+      "main_text": {
+        "AP50": 0.8893,
+        "precision": 0.9464,
+        "recall": 0.9464,
+        "support": 56
+      },
+      "side_text": {
+        "AP50": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 21
+      },
+      "filler": {
+        "AP50": 0.0758,
+        "precision": 0.2683,
+        "recall": 0.22,
+        "support": 150
+      }
+    },
+    "real_test": {
+      "macro_mAP50": 0.3045,
+      "header": {
+        "AP50": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 6
+      },
+      "footer": {
+        "AP50": null,
+        "precision": null,
+        "recall": null,
+        "support": 0
+      },
+      "main_text": {
+        "AP50": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 9
+      },
+      "side_text": {
+        "AP50": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 13
+      },
+      "filler": {
+        "AP50": 0.2182,
+        "precision": 0.069,
+        "recall": 0.5,
+        "support": 4
+      }
+    }
+  },
+  "yolo": {
+    "val": {
+      "header": {
+        "AP50": 0.6288,
+        "precision": 0.9167,
+        "recall": 0.6111,
+        "support": 18,
+        "detections": 12
+      },
+      "footer": {
+        "AP50": 0.2727,
+        "precision": 0.75,
+        "recall": 0.2727,
+        "support": 11,
+        "detections": 4
+      },
+      "main_text": {
+        "AP50": 1.0,
+        "precision": 0.9804,
+        "recall": 1.0,
+        "support": 50,
+        "detections": 51
+      },
+      "side_text": {
+        "AP50": 0.5455,
+        "precision": 1.0,
+        "recall": 0.6,
+        "support": 20,
+        "detections": 12
+      },
+      "filler": {
+        "AP50": 0.4235,
+        "precision": 0.9016,
+        "recall": 0.4472,
+        "support": 123,
+        "detections": 61
+      },
+      "macro_mAP50": 0.5741
+    },
+    "test_synthetic": {
+      "header": {
+        "AP50": 0.8182,
+        "precision": 0.9333,
+        "recall": 0.8235,
+        "support": 17,
+        "detections": 15
+      },
+      "footer": {
+        "AP50": 0.6364,
+        "precision": 0.9286,
+        "recall": 0.6842,
+        "support": 19,
+        "detections": 14
+      },
+      "main_text": {
+        "AP50": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 56,
+        "detections": 56
+      },
+      "side_text": {
+        "AP50": 0.6364,
+        "precision": 1.0,
+        "recall": 0.619,
+        "support": 21,
+        "detections": 13
+      },
+      "filler": {
+        "AP50": 0.6133,
+        "precision": 0.8919,
+        "recall": 0.66,
+        "support": 150,
+        "detections": 111
+      },
+      "macro_mAP50": 0.7408
+    },
+    "real_test": {
+      "header": {
+        "AP50": 0.1818,
+        "precision": 1.0,
+        "recall": 0.1667,
+        "support": 6,
+        "detections": 1
+      },
+      "footer": {
+        "AP50": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 0,
+        "detections": 0
+      },
+      "main_text": {
+        "AP50": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 9,
+        "detections": 9
+      },
+      "side_text": {
+        "AP50": 0.0909,
+        "precision": 1.0,
+        "recall": 0.0769,
+        "support": 13,
+        "detections": 1
+      },
+      "filler": {
+        "AP50": 0.3333,
+        "precision": 0.1333,
+        "recall": 0.5,
+        "support": 4,
+        "detections": 15
+      },
+      "macro_mAP50": 0.4015
+    }
+  },
+  "hybrid": {
+    "val": {
+      "macro_mAP50": 0.9916,
+      "header": {
+        "AP50": 0.9892,
+        "precision": 0.9232,
+        "recall": 1.0,
+        "support": 18
+      },
+      "footer": {
+        "AP50": 0.995,
+        "precision": 1.0,
+        "recall": 0.9882,
+        "support": 11
+      },
+      "main_text": {
+        "AP50": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 50
+      },
+      "side_text": {
+        "AP50": 0.995,
+        "precision": 0.9614,
+        "recall": 1.0,
+        "support": 20
+      },
+      "filler": {
+        "AP50": 0.9837,
+        "precision": 0.9408,
+        "recall": 0.9045,
+        "support": 123
+      }
+    },
+    "test_synthetic": {
+      "macro_mAP50": 0.968,
+      "header": {
+        "AP50": 0.9855,
+        "precision": 0.8069,
+        "recall": 0.9835,
+        "support": 17
+      },
+      "footer": {
+        "AP50": 0.9372,
+        "precision": 0.9125,
+        "recall": 0.8947,
+        "support": 19
+      },
+      "main_text": {
+        "AP50": 0.995,
+        "precision": 0.9867,
+        "recall": 1.0,
+        "support": 56
+      },
+      "side_text": {
+        "AP50": 0.995,
+        "precision": 1.0,
+        "recall": 0.9519,
+        "support": 21
+      },
+      "filler": {
+        "AP50": 0.925,
+        "precision": 0.88,
+        "recall": 0.84,
+        "support": 150
+      }
+    },
+    "real_test": {
+      "macro_mAP50": 0.435,
+      "header": {
+        "AP50": 0.2217,
+        "precision": 0.9354,
+        "recall": 0.1667,
+        "support": 6
+      },
+      "footer": {
+        "AP50": null,
+        "precision": null,
+        "recall": null,
+        "support": 0
+      },
+      "main_text": {
+        "AP50": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 9
+      },
+      "side_text": {
+        "AP50": 0.278,
+        "precision": 0.7831,
+        "recall": 0.0769,
+        "support": 13
+      },
+      "filler": {
+        "AP50": 0.245,
+        "precision": 0.275,
+        "recall": 0.5,
+        "support": 4
+      }
+    }
+  }
+}

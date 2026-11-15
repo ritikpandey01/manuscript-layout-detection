@@ -1,0 +1,44 @@
+# Manuscript Layout Region Detection Configuration
+
+# Detection Engine
+method: yolo
+
+# Label configuration
+labels:
+  - header
+  - footer
+  - main_text
+  - side_text
+  - filler
+
+# Domain Assumptions
+english_is_filler: true
+include_main_text: true
+
+# Output Settings
+review_threshold: 0.4
+bbox_format: "x_min,y_min,x_max,y_max"
+
+# Annotation colors (BGR for OpenCV visualization)
+colors:
+  header: [255, 100, 100]    # blue-ish
+  footer: [100, 255, 100]    # green
+  main_text: [100, 100, 255] # red
+  side_text: [255, 255, 100] # cyan
+  filler: [128, 128, 128]    # gray
+
+# YOLOv8 Model Configuration
+yolo:
+  weights_path: method_yolo/weights/best.pt
+  imgsz: 1024
+  conf: 0.25
+  iou_nms: 0.45
+  min_box_area: 200
+
+# Page Boundary Estimation
+page_boundary:
+  method: auto  # auto | edge | color | full_image
+  edge_canny_low: 50
+  edge_canny_high: 150
+  min_page_area_ratio: 0.3
+  margin_padding: 5

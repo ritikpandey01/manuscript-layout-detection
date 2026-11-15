@@ -1,0 +1,112 @@
+{
+  "val": {
+    "mAP50": 0.9916,
+    "mAP50-95": 0.8499,
+    "support": {
+      "header": 18,
+      "footer": 11,
+      "main_text": 50,
+      "side_text": 20,
+      "filler": 123
+    },
+    "per_class": {
+      "header": {
+        "AP50": 0.9892,
+        "P": 0.9232,
+        "R": 1.0
+      },
+      "footer": {
+        "AP50": 0.995,
+        "P": 1.0,
+        "R": 0.9882
+      },
+      "main_text": {
+        "AP50": 0.995,
+        "P": 0.9225,
+        "R": 1.0
+      },
+      "side_text": {
+        "AP50": 0.995,
+        "P": 0.9614,
+        "R": 1.0
+      },
+      "filler": {
+        "AP50": 0.9837,
+        "P": 0.9408,
+        "R": 0.9045
+      }
+    }
+  },
+  "test_synthetic": {
+    "mAP50": 0.9655,
+    "mAP50-95": 0.7086,
+    "support": {
+      "header": 17,
+      "footer": 19,
+      "main_text": 56,
+      "side_text": 21,
+      "filler": 150
+    },
+    "per_class": {
+      "header": {
+        "AP50": 0.9855,
+        "P": 0.8069,
+        "R": 0.9835
+      },
+      "footer": {
+        "AP50": 0.9372,
+        "P": 0.9125,
+        "R": 0.8947
+      },
+      "main_text": {
+        "AP50": 0.995,
+        "P": 0.9867,
+        "R": 1.0
+      },
+      "side_text": {
+        "AP50": 0.995,
+        "P": 1.0,
+        "R": 0.9519
+      },
+      "filler": {
+        "AP50": 0.9148,
+        "P": 0.8669,
+        "R": 0.8267
+      }
+    }
+  },
+  "real_test_DRAFT_labels": {
+    "mAP50": 0.4168,
+    "mAP50-95": 0.2768,
+    "support": {
+      "header": 6,
+      "footer": 0,
+      "main_text": 9,
+      "side_text": 13,
+      "filler": 4
+    },
+    "per_class": {
+      "header": {
+        "AP50": 0.2217,
+        "P": 0.9354,
+        "R": 0.1667
+      },
+      "footer": "N/A (no labels)",
+      "main_text": {
+        "AP50": 0.995,
+        "P": 1.0,
+        "R": 0.9899
+      },
+      "side_text": {
+        "AP50": 0.278,
+        "P": 0.7831,
+        "R": 0.0769
+      },
+      "filler": {
+        "AP50": 0.1725,
+        "P": 0.2564,
+        "R": 0.25
+      }
+    }
+  }
+}

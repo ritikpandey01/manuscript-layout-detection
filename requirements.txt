@@ -1,0 +1,18 @@
+# Core
+opencv-python-headless>=4.8,<5
+numpy>=1.24,<2.3
+Pillow>=10.0,<14
+PyYAML>=6.0,<7
+matplotlib>=3.7,<4
+
+# Deep Learning (YOLOv8 Production Engine)
+ultralytics>=8.0.0
+
+# Testing
+pytest>=7.4,<9
+
+# Evaluation
+pycocotools>=2.0.7
+
+# Notebook validation
+nbformat>=5.9,<6
